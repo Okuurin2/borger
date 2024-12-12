@@ -29,6 +29,7 @@ QualitySettings:
     billboardsFaceCameraPosition: 0
     useLegacyDetailDistribution: 1
     vSyncCount: 0
+    realtimeGICPUUsage: 25
     lodBias: 0.3
     maximumLODLevel: 0
     enableLODCrossFade: 1
@@ -43,7 +44,7 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-    customRenderPipeline: {fileID: 11400000, guid: fd42a132493b1f143a4963adcd530ef1, type: 2}
+    customRenderPipeline: {fileID: 11400000, guid: d64ddb00fd80a054d9844d5118cd0ff6, type: 2}
     terrainQualityOverrides: 0
     terrainPixelError: 1
     terrainDetailDensityScale: 1
@@ -77,9 +78,10 @@ QualitySettings:
     billboardsFaceCameraPosition: 1
     useLegacyDetailDistribution: 1
     vSyncCount: 0
+    realtimeGICPUUsage: 25
     lodBias: 0.4
     maximumLODLevel: 0
-    enableLODCrossFade: 0
+    enableLODCrossFade: 1
     streamingMipmapsActive: 0
     streamingMipmapsAddAllCameras: 1
     streamingMipmapsMemoryBudget: 512
@@ -91,7 +93,7 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-    customRenderPipeline: {fileID: 11400000, guid: fd42a132493b1f143a4963adcd530ef1, type: 2}
+    customRenderPipeline: {fileID: 11400000, guid: 7263373e1c8a12b46a223a269af75868, type: 2}
     terrainQualityOverrides: 0
     terrainPixelError: 1
     terrainDetailDensityScale: 1
@@ -125,6 +127,7 @@ QualitySettings:
     billboardsFaceCameraPosition: 0
     useLegacyDetailDistribution: 1
     vSyncCount: 1
+    realtimeGICPUUsage: 25
     lodBias: 0.7
     maximumLODLevel: 0
     enableLODCrossFade: 1
@@ -139,7 +142,7 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-    customRenderPipeline: {fileID: 0}
+    customRenderPipeline: {fileID: 11400000, guid: 09a50fe80505ee4458a5e1d480d3e601, type: 2}
     terrainQualityOverrides: 0
     terrainPixelError: 1
     terrainDetailDensityScale: 1
@@ -173,6 +176,7 @@ QualitySettings:
     billboardsFaceCameraPosition: 1
     useLegacyDetailDistribution: 1
     vSyncCount: 1
+    realtimeGICPUUsage: 50
     lodBias: 1
     maximumLODLevel: 0
     enableLODCrossFade: 1
@@ -187,7 +191,7 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-    customRenderPipeline: {fileID: 0}
+    customRenderPipeline: {fileID: 11400000, guid: af60cd3c6fd041c48b1b28296334e911, type: 2}
     terrainQualityOverrides: 0
     terrainPixelError: 1
     terrainDetailDensityScale: 1
@@ -221,6 +225,7 @@ QualitySettings:
     billboardsFaceCameraPosition: 1
     useLegacyDetailDistribution: 1
     vSyncCount: 1
+    realtimeGICPUUsage: 50
     lodBias: 1.5
     maximumLODLevel: 0
     enableLODCrossFade: 1
@@ -235,7 +240,7 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-    customRenderPipeline: {fileID: 0}
+    customRenderPipeline: {fileID: 11400000, guid: 8367c4d34f581e445be3f36d556a76b2, type: 2}
     terrainQualityOverrides: 0
     terrainPixelError: 1
     terrainDetailDensityScale: 1
@@ -269,6 +274,7 @@ QualitySettings:
     billboardsFaceCameraPosition: 1
     useLegacyDetailDistribution: 1
     vSyncCount: 1
+    realtimeGICPUUsage: 100
     lodBias: 2
     maximumLODLevel: 0
     enableLODCrossFade: 1
@@ -283,7 +289,7 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-    customRenderPipeline: {fileID: 11400000, guid: cf6a652e94858004a93399f0a3dac507, type: 2}
+    customRenderPipeline: {fileID: 11400000, guid: b7258ad71bfcb534ab8ff35151aa9380, type: 2}
     terrainQualityOverrides: 0
     terrainPixelError: 1
     terrainDetailDensityScale: 1

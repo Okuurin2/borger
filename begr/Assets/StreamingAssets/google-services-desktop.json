@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "979173120594",
+    "project_id": "idkwhatimdoinglol",
+    "storage_bucket": "idkwhatimdoinglol.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:979173120594:android:aa17bc34efd0f773759d8b",
+        "android_client_info": {
+          "package_name": "com.schzophrenia.lol"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdKvOkmxUqWG0TIXCn7mrWSZrZu9CWkIE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
