@@ -9,15 +9,20 @@
 </head>
 <body>
     <header>
-        <h1>Welcome to Burjer VR Portal</h1>
+        <img src="\imgs\Burjer.png" class="burjer_logo"> <img>
+        <list id ="nav">
+            <li><button href="index.html">Home</a></li>
+            <li><button href="about.html">About</a></li>
+            <li><button href="/imgs/menu.pdf">Menu</a></li> 
+        </list>
     </header>
     <main>
         <p>Your gateway to training and testing at the world-famous Burjer!</p>
-        <button onclick="redirectToLogin()">Login to Your Account</button>
+        <button id="loginButton" onclick="redirectToLogin()">Login to Your Account</button>
     </main>
     <footer>
         <p>&copy; 2024 Burjer Inc.</p>
     </footer>
-    <script src="firebase.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
