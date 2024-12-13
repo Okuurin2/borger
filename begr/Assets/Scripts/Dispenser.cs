@@ -40,34 +40,22 @@ public class Dispenser : MonoBehaviour
         {
             Drink drink = cup.GetComponent<Drink>();
             string type = args.interactableObject.transform.gameObject.name;
-<<<<<<< Updated upstream
             if (colours.TryGetValue(type, out Color color) && (drink.typeOfDrink == "" || drink.typeOfDrink == type) && fillCoroutine == null)
             {
                 drink.typeOfDrink = type;
                 Transform circle = cup.transform.Find("Circle");
                 circle.GetComponent<Renderer>().material.color = color;
                 fillCoroutine = StartCoroutine(FillCup());
-=======
-            if (colours.TryGetValue(type, out Color color) && drink.typeOfDrink == "" && fillCoroutine == null)
-            {
-                drink.typeOfDrink = type;
-                cup.GetComponent<Renderer>().material.color = color;
-                fillCoroutine = StartCoroutine(FillCup(args.interactableObject.transform.gameObject.name));
->>>>>>> Stashed changes
             }
             else if (type == "Ice")
             {
                 drink.Ice = true;
-<<<<<<< Updated upstream
                 Transform ice = drink.transform.Find("Ice");
                 ice.gameObject.SetActive(true);
-=======
->>>>>>> Stashed changes
             }
             Debug.Log("Pressed");
         }
     }
-
     public void Release(SelectExitEventArgs args)
     {
 
@@ -77,37 +65,23 @@ public class Dispenser : MonoBehaviour
             fillCoroutine = null;
         }
     }
-
-<<<<<<< Updated upstream
     private IEnumerator FillCup()
-=======
-    private IEnumerator FillCup(string drinkType)
->>>>>>> Stashed changes
     {
         Drink drink = cup.GetComponent<Drink>();
 
         float fillLevel = drink.fillLevel;
-<<<<<<< Updated upstream
         Transform circle = cup.transform.Find("Circle");
 
-        while (fillLevel < 1.0f) 
+        while (fillLevel < 1.0f)
         {
-            fillLevel += fillRate * Time.deltaTime;     
+            fillLevel += fillRate * Time.deltaTime;
             drink.fillLevel = Mathf.Clamp01(fillLevel);
             float size = 0.02215714f - 0.01863194f;
-            size= size* fillLevel + 0.01863194f;
+            size = size * fillLevel + 0.01863194f;
             float height = 0.00827f + 0.00973f;
             height = height * fillLevel - 0.00973f;
             circle.localScale = new Vector3(size, 0.00001f, size);
             circle.localPosition = new Vector3(0, height, 0);
-=======
-
-
-        while (fillLevel < 1.0f) 
-        {
-            fillLevel += fillRate * Time.deltaTime; 
-            drink.fillLevel = Mathf.Clamp01(fillLevel);
->>>>>>> Stashed changes
             yield return null;
         }
     }
