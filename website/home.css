@@ -1,0 +1,74 @@
+:root {
+    --burjer-red: #BA2626;
+    --burjer-yellow: #EBB222;
+    --burjer-green: #0E7A25;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    color: white;
+    padding: 1em 0;
+}
+
+h1 {
+    margin: 0;
+}
+
+main {
+    margin: 2em auto;
+    width: 90%;
+    max-width: 1200px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+input {
+    padding: 0.8em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+#loginButton {
+    background-color: var(--burjer-green);
+    color: white;
+    padding: 0.8em;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+#loginButton:hover {
+    background-color: #1b9034;
+    transition: background-color 0.3s ease;
+}
+
+footer {
+    margin-top: 2em;
+    color: #666;
+    font-size: 0.8em;
+}
+
+.burjer_logo{
+    height: 100px;
+    width: auto;
+}
+
+#banner{
+    width: 100%;
+}

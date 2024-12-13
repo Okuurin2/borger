@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burjer VR Portal</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="imgs\Burjer.png" class="burjer_logo"> <img>
+        <list id ="nav">
+            <li><button onclick="index.html">Home</a></li>
+            <li><button onclick="about.html">About</a></li>
+            <li><button onclick="window.open('imgs/menu.pdf','_blank')">View Menu</a></li>
+            <li><button onclick="redirectToLogin()"> VR game</button></li> 
+        </list>
+    </header>
+    <main>
+        <img id= "banner" src="imgs\banner-06.png">
+        <div>
+            <p>Your gateway to training and testing at the world-famous Burjer!</p>
+            <button id="loginButton" onclick="redirectToLogin()">Login to Your Account</button>
+        </div>
+    </main>
+    <footer>
+        <ul>
+            <li><a href="imgs/menu.pdf"> Menu </a></li>
+            <li><a> Locations </a></li>
+            <li><a> Contact Us </a></li>
+            <li><a> Privacy Policy </a></li>
+            <li><a> Terms of Use </a></li>
+        </ul>
+        <p>&copy; 2024 Burjer Inc.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
