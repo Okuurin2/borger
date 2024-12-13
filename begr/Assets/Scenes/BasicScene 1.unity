@@ -20,7 +20,11 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
+<<<<<<< Updated upstream
   m_AmbientSkyColor: {r: 0.836478, g: 0.67282736, b: 0.66023886, a: 1}
+=======
+  m_AmbientSkyColor: {r: 1, g: 0.7809972, b: 0.76415086, a: 1}
+>>>>>>> Stashed changes
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -681,13 +685,21 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299639867}
   serializedVersion: 2
+<<<<<<< Updated upstream
   m_LocalRotation: {x: 0.11880291, y: -0.66451347, z: 0.54191387, w: 0.5006367}
+=======
+  m_LocalRotation: {x: -0.02985389, y: -0.71123433, z: 0.4444466, w: 0.5438031}
+>>>>>>> Stashed changes
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< Updated upstream
   m_LocalEulerAnglesHint: {x: 57.053, y: -80.623, z: 45.021}
+=======
+  m_LocalEulerAnglesHint: {x: 36.851, y: -90.966, z: 41.083}
+>>>>>>> Stashed changes
 --- !u!114 &299639870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10546,8 +10558,13 @@ Transform:
   m_GameObject: {fileID: 1103361246606590296}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071069, y: -0.000000029802319, z: 0.000000029802319, w: 0.7071067}
+<<<<<<< Updated upstream
   m_LocalPosition: {x: 0.54, y: 4.0681376, z: -0.29731733}
   m_LocalScale: {x: 582.65314, y: 1094.1195, z: 100}
+=======
+  m_LocalPosition: {x: 0.49770427, y: 4.0681376, z: -0.29731733}
+  m_LocalScale: {x: 523.488, y: 899.222, z: 100}
+>>>>>>> Stashed changes
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 291649149660877197}
