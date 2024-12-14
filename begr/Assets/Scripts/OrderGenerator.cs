@@ -20,19 +20,6 @@ public class OrderGenerator : MonoBehaviour
     }
     private void Start()
     {
-        burges = new Dictionary<string,string[]>
-        {
-            {"Jalapeno Burger" , new string[]
-            {
-                "BottomBun", "Beef","Cheese","Tomato","Lettuce","Onion","Jalapeno","TopBun"
-            }},
-            {"Cheeseburger" , new string[]
-            {
-                "BottomBun","Beef","Cheese","Lettuce","Onion","Pickles","TopBun"
-            }}
-
-        };
-
         burgers = new string[]
         {
             "Jalapeno Burjer","Cheeseburger"

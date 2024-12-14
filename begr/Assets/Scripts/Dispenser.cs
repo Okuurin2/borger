@@ -17,10 +17,10 @@ public class Dispenser : MonoBehaviour
     {
         colours = new Dictionary<string, Color>()
         {
-            { "Coke", new Color(89/255, 31/255, 14/255)},
-            { "Sprite", new Color(.7f,.8f,.7f)},
-            { "Milo", new Color(102/255, 68/255, 20/255)},
-            { "Lemon Tea", new Color(79/255, 38/255, 15/255)}
+            { "Coke", new Color(0.3490196078f, 0.1215686275f, 0.05490196078f)},
+            { "Sprite", new Color(.8f,.81f,.8f)},
+            { "Milo", new Color(.4f, 0.2666666667f, 0.07843137255f)},
+            { "Lemon Tea", new Color(0.3098039216f, 0.1490196078f, 0.05882352941f)}
         };
     }
 

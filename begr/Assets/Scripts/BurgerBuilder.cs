@@ -1,35 +1,101 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using UnityEngine;
-
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class BurgerBuilder : MonoBehaviour
 {
-    public Transform baseSocket; // Starting point for the burger stack
-    private int currentLayer = 0; // Current layer of the stack
-    public float layerHeight = 0.02f; // Height of each ingredient layer
+    public Transform plate; // Reference to the plate where ingredients are stacked
+    private float currentStackHeight = 0.0001f; // Starting height above the plate
     private List<string> assembledIngredients = new List<string>(); // Track placed ingredients
+    public XRSocketInteractor socket; // The main socket for stacking
 
-    public void PlaceIngredient(GameObject ingredient)
+    // Ingredient height data
+    private Dictionary<string, float> ingredientHeights = new Dictionary<string, float>()
     {
-        // Snap ingredient to the next layer position
-        Vector3 newPosition = baseSocket.position + new Vector3(0, layerHeight * currentLayer, 0);
-        ingredient.transform.position = newPosition;
-        ingredient.transform.rotation = baseSocket.rotation;
+        {"Beef", 0.0076f },
+        {"Cheese", 0.0024f },
+        {"Lettuce", 0.0061f },
+        {"Tomato", 0.0032f },
+        {"Onion", 0.0035f },
+        {"Jalapenos", 0.0029f },
+        {"Pickles", 0.0024f },
+        {"TopBun", -0.0163f},
+        {"BotBun",0.03f }
+    };
 
-        // Disable physics to lock the ingredient in place
-        Rigidbody rb = ingredient.GetComponent<Rigidbody>();
-        if (rb != null)
+    private void Start()
+    {
+        socket.selectEntered.AddListener(OnIngredientPlaced);
+    }
+
+    private void OnIngredientPlaced(SelectEnterEventArgs args)
+    {
+        GameObject ingredient = args.interactableObject.transform.gameObject;
+        string ingredientName = ingredient.name;
+
+        // Get the height of the ingredient
+        if (ingredientHeights.TryGetValue(ingredientName, out float height))
         {
-            rb.isKinematic = true;
+            // Position the ingredient at the top of the stack
+            currentStackHeight += height;
+            Vector3 stackPosition = plate.position + new Vector3(0, currentStackHeight, 0);
+            ingredient.transform.position = stackPosition;
+
+            // Parent the ingredient to the plate
+            ingredient.transform.SetParent(plate, true);
+            ingredient.transform.rotation = Quaternion.Euler(0,0,0);
+            if (ingredientName == "BotBun")
+            {
+                ingredient.transform.Rotate(180,0,0);
+                currentStackHeight -= 0.0134f;
+            }
+            if (ingredientName == "TopBun")
+            {
+                FinishBurger();
+            }
+            ingredient.transform.Rotate(0, Random.Range(0,360), 0);
+
+            // Disable interaction/grabbing after placement
+            XRGrabInteractable grabInteractable = ingredient.GetComponent<XRGrabInteractable>();
+            if (grabInteractable != null)
+            {
+                grabInteractable.enabled = false; // Disable grabbing
+            }
+            Rigidbody rigidbody = ingredient.GetComponent<Rigidbody>();
+            if (rigidbody != null)
+            {
+                rigidbody.isKinematic = true;
+            }
+            ingredient.transform.parent = plate;
+            Debug.Log($"Placed {ingredientName} at height {currentStackHeight}");
+        }
+        else
+        {
+            Debug.LogWarning($"Unknown ingredient: {ingredientName}");
+        }
+    }
+    public void FinishBurger()
+    {
+        socket.GetComponent<XRSocketInteractor>().enabled = false;
+    }
+    public void ResetStack()
+    {
+        // Reset the stack for a new burger
+        foreach (Transform child in plate)
+        {
+            Destroy(child.gameObject);
         }
 
-        // Parent the ingredient to the burger base
-        ingredient.transform.SetParent(baseSocket);
+        assembledIngredients.Clear();
+        currentStackHeight = 0.01f; // Reset height above the plate
+    }
 
-        // Track the ingredient name for order checking
-        assembledIngredients.Add(ingredient.name);
-
-        currentLayer++;
+    public List<string> GetAssembledIngredients()
+    {
+        return new List<string>(assembledIngredients);
     }
 }

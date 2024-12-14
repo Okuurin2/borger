@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Trash : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    GameManager gameManager;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        gameManager = FindAnyObjectByType<GameManager>();
+    }
+    public void Delete(SelectEnterEventArgs args)
+    {
+        Destroy(args.interactableObject.transform.gameObject);
+        gameManager.trash += 1;
     }
 }

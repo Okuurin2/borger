@@ -25,11 +25,9 @@ public class AuthManager : MonoBehaviour
     public TMP_InputField signupUsernameField;
     public TextMeshProUGUI signupError;
 
-    public Camera CamMenu;
     public Camera CameraMain;
 
     public Canvas LoginUI;
-    public Canvas GameUI;
 
     //private DataManager dataManager;
 
@@ -39,9 +37,6 @@ public class AuthManager : MonoBehaviour
 
     void Start()
     {
-        CameraMain.enabled = false;
-        CamMenu.enabled = true;
-        GameUI.enabled = false;
         LoginUI.enabled = true;
         loginError.text = string.Empty;
         signupError.text = string.Empty;
@@ -131,14 +126,8 @@ public class AuthManager : MonoBehaviour
 
     public void StartGame()
     {
-        Debug.Log("a");
-        CamMenu.enabled = false;
-        Debug.Log("b");
         CameraMain.enabled = true;
-        Debug.Log("c");
         LoginUI.enabled = false;
-        Debug.Log("d");
-        GameUI.enabled = true;
         //dataManager.StartGame();
         Debug.Log("a");
     }
