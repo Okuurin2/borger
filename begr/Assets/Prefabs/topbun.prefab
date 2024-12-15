@@ -10,27 +10,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: c3eeb436bb5c4134887fae417aca7132, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4.4342613
+      value: 8.668976
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c3eeb436bb5c4134887fae417aca7132, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4.2372913
+      value: 8.283899
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c3eeb436bb5c4134887fae417aca7132, type: 3}
       propertyPath: m_LocalScale.z
-      value: 4.4342613
+      value: 8.668976
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c3eeb436bb5c4134887fae417aca7132, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0023748875
+      value: 4.408488
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c3eeb436bb5c4134887fae417aca7132, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.051099986
+      value: 1.2241633
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c3eeb436bb5c4134887fae417aca7132, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0007750988
+      value: 17.094074
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c3eeb436bb5c4134887fae417aca7132, type: 3}
       propertyPath: m_LocalRotation.w
@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: c53795d9ac513b04e877964f066644a6, type: 2}
     - target: {fileID: 919132149155446097, guid: c3eeb436bb5c4134887fae417aca7132, type: 3}
       propertyPath: m_Name
-      value: topbun
+      value: TopBun
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -211,7 +211,7 @@ MonoBehaviour:
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
   m_TightenScale: 0.1
-  m_ThrowOnDetach: 1
+  m_ThrowOnDetach: 0
   m_ThrowSmoothingDuration: 0.25
   m_ThrowSmoothingCurve:
     serializedVersion: 2

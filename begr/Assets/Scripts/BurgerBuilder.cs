@@ -24,7 +24,8 @@ public class BurgerBuilder : MonoBehaviour
         {"Jalapenos", 0.0029f },
         {"Pickles", 0.0024f },
         {"TopBun", -0.0163f},
-        {"BotBun",0.03f }
+        {"BotBun",0.03f },
+        {"Dark Matter",0.01f}
     };
 
     private void Start()

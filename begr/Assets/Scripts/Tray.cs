@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,10 +22,13 @@ public class Tray: MonoBehaviour
     private OrderGenerator orderGenerator;
     private float rating = 5;
     private string[] order;
+    private Transform spawnPoint;
+
+    private XRSocketInteractor[] sockets;
 
     private Dictionary<string, List<string>> burgers = new Dictionary<string, List<string>>
         {
-            { "Jalapeno Burger" , new List<string>
+            { "Jalapeno Burjer" , new List<string>
             {
                 "BottomBun", "Beef","Cheese","Tomato","Lettuce","Onion","Jalapeno","TopBun"
             }},
@@ -45,29 +49,39 @@ public class Tray: MonoBehaviour
         text.text = order[1] + ", " + order[2] + ", " + order[3];
     }
 
+    private void Awake()
+    {
+        sockets = GetComponentsInChildren<XRSocketInteractor>();
+    }
+
     public void AssignDrink(SelectEnterEventArgs args)
     {
         drink = args.interactableObject.transform.gameObject;
+        drink.transform.SetParent(tray.transform, true);
     }
 
     public void RemoveDrink(SelectExitEventArgs args)
     {
+        drink.transform.parent = null;
         drink = null;
     }
 
     public void AssignFries(SelectEnterEventArgs args)
     {
         fries = args.interactableObject.transform.gameObject;
+        fries.transform.SetParent(tray.transform, true);
     }
 
     public void RemoveFries(SelectExitEventArgs args)
     {
+        fries.transform.parent = null;
         fries = null;
     }
 
     public void Submit()
     {
         gameManager.meals += 1;
+        gameManager.OnTraySubmitted(spawnPoint);
         if (drink != null)
         {
             Drink drinkScript = drink.GetComponent<Drink>();
@@ -101,6 +115,26 @@ public class Tray: MonoBehaviour
         rating -= brating;
 
         gameManager.UpdateRating(rating);
-        Destroy(tray);
+
+        if (fries != null)
+        {
+
+        }
+        else
+        {
+            rating -= 1.5f;
+        }
+
+        if (drink != null)
+        {
+            Destroy(drink);
+        }
+        Destroy(gameObject);
     }
+
+    public void SetManager(GameManager manager, Transform spawn)
+    {
+        spawnPoint = spawn;
+    }
+
 }

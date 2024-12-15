@@ -28,8 +28,10 @@ public class AuthManager : MonoBehaviour
     public Camera CameraMain;
 
     public Canvas LoginUI;
+    public Canvas GameUI;
 
-    //private DataManager dataManager;
+    private GameManager gameManager;
+    private DataManager dataManager;
 
     private bool SignIn = true;
 
@@ -40,7 +42,8 @@ public class AuthManager : MonoBehaviour
         LoginUI.enabled = true;
         loginError.text = string.Empty;
         signupError.text = string.Empty;
-        //dataManager = FindObjectOfType<DataManager>();
+        gameManager = FindObjectOfType<GameManager>();
+        dataManager = FindObjectOfType<DataManager>();
         auth = FirebaseAuth.DefaultInstance;
         //StartGame();
     }
@@ -64,7 +67,7 @@ public class AuthManager : MonoBehaviour
                 AuthResult result = task.Result;
                 Debug.LogFormat("Firebase user created successfully: {0} ({1})", result.User.DisplayName, result.User.UserId);
                 userId = result.User.UserId;
-                //dataManager.CreatePlayer(userId, username);
+                dataManager.CreatePlayer(username);
                 Debug.Log("l");
                 StartGame();
             }
@@ -126,9 +129,9 @@ public class AuthManager : MonoBehaviour
 
     public void StartGame()
     {
-        CameraMain.enabled = true;
         LoginUI.enabled = false;
-        //dataManager.StartGame();
-        Debug.Log("a");
+        GameUI.enabled = true;
+        gameManager.StartGame();
+        Debug.Log("game start!");
     }
 }

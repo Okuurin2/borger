@@ -14,27 +14,27 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 47682659ab60f924dbc93843340602e1, type: 2}
     - target: {fileID: -8679921383154817045, guid: d15014dfcbd34d944845f1bd0a406f78, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.42842
+      value: 0.8375606
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d15014dfcbd34d944845f1bd0a406f78, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.42842
+      value: 0.8375606
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d15014dfcbd34d944845f1bd0a406f78, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.42842
+      value: 0.8375606
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d15014dfcbd34d944845f1bd0a406f78, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0113197565
+      value: 4.413552
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d15014dfcbd34d944845f1bd0a406f78, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.007199973
+      value: 1.2170919
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d15014dfcbd34d944845f1bd0a406f78, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0025504827
+      value: 17.091549
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d15014dfcbd34d944845f1bd0a406f78, type: 3}
       propertyPath: m_LocalRotation.w
@@ -78,7 +78,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 5ec2a646717670d4ea41ca8ca910e784, type: 2}
     - target: {fileID: 919132149155446097, guid: d15014dfcbd34d944845f1bd0a406f78, type: 3}
       propertyPath: m_Name
-      value: onion
+      value: Onion
       objectReference: {fileID: 0}
     - target: {fileID: 1963641168662223713, guid: d15014dfcbd34d944845f1bd0a406f78, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
   m_TightenScale: 0.1
-  m_ThrowOnDetach: 1
+  m_ThrowOnDetach: 0
   m_ThrowSmoothingDuration: 0.25
   m_ThrowSmoothingCurve:
     serializedVersion: 2
