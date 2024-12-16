@@ -30,11 +30,11 @@ public class Tray: MonoBehaviour
         {
             { "Jalapeno Burjer" , new List<string>
             {
-                "BottomBun", "Beef","Cheese","Tomato","Lettuce","Onion","Jalapeno","TopBun"
+                "BotBun", "Beef","Cheese","Lettuce","Tomato","Onion","Jalapenos","TopBun"
             }},
             { "Cheeseburger" , new List<string>
             {
-                "BottomBun","Beef","Cheese","Lettuce","Onion","Pickles","TopBun"
+                "BotBun","Beef","Cheese","Lettuce","Onion","Pickles","TopBun"
             }}
         };
 
@@ -105,16 +105,14 @@ public class Tray: MonoBehaviour
         int requiredIngredients = burgers[order[1]].Count;
         float brating = 0f;
 
-        brating += (requiredIngredients-totalMatches) * 0.25f;
+        brating += (requiredIngredients-totalMatches) * (2.5f / requiredIngredients);
         if (totalIngredients > requiredIngredients)
         {
-            brating += (totalIngredients - requiredIngredients) * 0.25f;
+            brating += (totalIngredients - requiredIngredients) * (2.5f / requiredIngredients);
         }
 
         brating = Mathf.Clamp(brating, 0f, 2.5f);
         rating -= brating;
-
-        gameManager.UpdateRating(rating);
 
         if (fries != null)
         {
@@ -125,6 +123,12 @@ public class Tray: MonoBehaviour
             rating -= 1.5f;
         }
 
+        gameManager.UpdateRating(rating);
+        DestroySelf();
+    }
+
+    public void DestroySelf()
+    {
         if (drink != null)
         {
             Destroy(drink);
@@ -135,6 +139,7 @@ public class Tray: MonoBehaviour
     public void SetManager(GameManager manager, Transform spawn)
     {
         spawnPoint = spawn;
+
     }
 
 }

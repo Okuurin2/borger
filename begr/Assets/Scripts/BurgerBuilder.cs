@@ -73,6 +73,7 @@ public class BurgerBuilder : MonoBehaviour
             }
             ingredient.transform.parent = plate;
             Debug.Log($"Placed {ingredientName} at height {currentStackHeight}");
+            assembledIngredients.Add(ingredientName);
         }
         else
         {

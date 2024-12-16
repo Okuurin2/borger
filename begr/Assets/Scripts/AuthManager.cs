@@ -131,7 +131,5 @@ public class AuthManager : MonoBehaviour
     {
         LoginUI.enabled = false;
         GameUI.enabled = true;
-        gameManager.StartGame();
-        Debug.Log("game start!");
     }
 }

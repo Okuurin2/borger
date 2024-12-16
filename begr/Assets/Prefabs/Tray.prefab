@@ -730,7 +730,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8666705133684467336}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4249842544689154779}
+        m_TargetAssemblyTypeName: Tray, Assembly-CSharp
+        m_MethodName: Submit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4674253726906405414
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,8 +894,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.436, y: 1.088, z: 17.44}
-  m_LocalScale: {x: 199.99995, y: 200, z: 199.99995}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2831841619597297578}
   - {fileID: 4707778602147107912}
@@ -905,7 +917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed77c509e2c890c40a65666a079869d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plate: {fileID: 0}
+  plate: {fileID: 2060127574984736116}
   drink: {fileID: 0}
   fries: {fileID: 0}
   text: {fileID: 7388500733839062869}
@@ -1566,7 +1578,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1009
+  m_VersionIndex: 1015
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []

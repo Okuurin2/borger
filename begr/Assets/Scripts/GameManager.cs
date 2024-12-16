@@ -8,10 +8,6 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
 {
-    private Dictionary<string, string[]> burgers;
-    private OrderGenerator orderGenerator;
-    private List<string[]> ordersList;
-
     public int meals;
     public int score;
     public float rating;
@@ -20,16 +16,25 @@ public class GameManager : MonoBehaviour
     public Transform[] traySpawns;
     public ObjectSpawner[] objectSpawners;
     public int timer = 300;
+    public bool gameStarted;
 
-    public float minRespawnTime = 5f;   // Minimum time to respawn a tray
-    public float maxRespawnTime = 20f;   // Maximum time to respawn a tray
+    public float minRespawnTime = 15f;   // Minimum time to respawn a tray
+    public float maxRespawnTime = 30f;   // Maximum time to respawn a tray
 
     public GameObject helpThing;
     public Canvas GameUI;
     public Canvas[] tutorialPages;
+    public Canvas EndUI;
     private int currentPage;
 
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI mealsText;
+    public TextMeshProUGUI ratingText;
+    public TextMeshProUGUI trashText;
+
     private bool help;
+
+    private DataManager dataManager;
 
     public TextMeshPro timerText; // Assign the TextMeshPro component in the Inspector
     private bool isTimerRunning = false;
@@ -37,27 +42,22 @@ public class GameManager : MonoBehaviour
 
     private Dictionary<Transform, GameObject> activeTrays = new Dictionary<Transform, GameObject>();
 
+    public bool skipLogin;
+
     private void Start()
     {
-        burgers = new Dictionary<string, string[]>
-        {
-            {"Jalapeno Burger" , new string[]
-            {
-                "BottomBun", "Beef","Cheese","Tomato","Lettuce","Jalapeno","TopBun"
-            }},
-            {"Cheeseburger" , new string[]
-            {
-                "BottomBun","Beef","Cheese","Lettuce","Pickles","TopBun"
-            }}
-
-        };
-        orderGenerator = FindFirstObjectByType<OrderGenerator>();
         foreach (ObjectSpawner objectSpawner in objectSpawners)
         {
             objectSpawner.enabled = false;
         }
         helpThing.SetActive(false);
-        //StartGame();
+        EndUI.enabled = false;
+        GameUI.enabled = false;
+        dataManager = FindAnyObjectByType<DataManager>();
+        if (skipLogin)
+        {
+            StartGame();
+        }
     }
 
     public void UpdateRating(float newRating)
@@ -67,17 +67,20 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        timeRemaining = timer;
         foreach (ObjectSpawner objectSpawner in objectSpawners)
         {
             objectSpawner.enabled = true;
         }
         foreach (Transform spawn in traySpawns)
         {
-            RespawnTrayAfterDelay(spawn);
+            SpawnTray(spawn);
         }
+        GameUI.enabled = false;
         StartTimer();
         help = false;
         helpThing.SetActive(false);
+        gameStarted = true;
     }
 
     public void HelpToggle()
@@ -161,15 +164,23 @@ public class GameManager : MonoBehaviour
     private void TimerComplete()
     {
         isTimerRunning = false;
-        Debug.Log("Timer Complete!");
+        gameStarted = false;
+        StopAllCoroutines();
+        EndGame();
     }
 
-    public void ResetTimer()
+    public void ResetGame()
     {
         StopAllCoroutines();
         isTimerRunning = false;
-        timeRemaining = 300f;
+        timeRemaining = timer;
         UpdateTimerDisplay();
+        score = 0;
+        rating = 0;
+        meals = 0;
+        trash = 0;
+        EndUI.enabled = false;
+        StartGame();
     }
 
     public void NextPage()
@@ -190,12 +201,33 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void UpdatePageVisibility()
+    private void UpdatePageVisibility()
     {
         // Activate the current page and deactivate others
         for (int i = 0; i < tutorialPages.Length; i++)
         {
             tutorialPages[i].gameObject.SetActive(i == currentPage);
         }
+    }
+
+    private void EndGame()
+    {
+        EndUI.enabled = true;
+        score = Mathf.RoundToInt(meals * rating);
+        rating = Mathf.Round(rating*10)/10;
+        scoreText.text = "Final Score: " + score.ToString();
+        mealsText.text = "Total Meals Served: " + meals.ToString();
+        ratingText.text = "Average Rating: " + rating.ToString();
+        trashText.text = "Items Trashed: " + trash.ToString();
+        foreach (GameObject tray in activeTrays.Values)
+        {
+            tray.GetComponent<Tray>().DestroySelf();
+        }
+        foreach (ObjectSpawner objectSpawner in objectSpawners)
+        {
+            objectSpawner.enabled = false;
+        }
+        activeTrays = new Dictionary<Transform, GameObject>();
+        dataManager.PushRoundData(score,meals,rating,trash);
     }
 }

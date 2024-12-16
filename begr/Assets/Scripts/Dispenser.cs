@@ -58,7 +58,6 @@ public class Dispenser : MonoBehaviour
     }
     public void Release(SelectExitEventArgs args)
     {
-
         if (fillCoroutine != null)
         {
             StopCoroutine(fillCoroutine);
