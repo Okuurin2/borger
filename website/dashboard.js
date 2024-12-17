@@ -1,53 +1,123 @@
 // Import Firebase modules
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
+import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
 
 // Firebase configuration
-import { firebaseConfig } from "./config.js";
+import { firebaseConfig } from "./config.js"
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-// Reference to the data location in the database
-const dataRef = ref(db, "Users");
+const usersPerPage = 10;
+let users = [];
+let currentPage = 1;
 
-// HTML table element
-const table = document.getElementById("data-table");
+// Fetch users from Firebase
+async function fetchUsers() {
+  try {
+    const usersRef = ref(db, "Users");
+    const snapshot = await get(usersRef);
 
-// Fetch and display data
-onValue(dataRef, (snapshot) => {
-    // Clear table content except for the header row
-    table.innerHTML = "<tr><th>Name</th><th>Score</th><th>Rating</th></tr>";
-
-    // Check if the snapshot has any data
     if (snapshot.exists()) {
-        // Iterate through the data snapshot
-        snapshot.forEach((childSnapshot) => {
-            const data = childSnapshot.val();
-
-            // Create a new row for the table
-            const row = table.insertRow();
-
-            // Insert cells for Name, Score, and Quality
-            const nameCell = row.insertCell(0);
-            const scoreCell = row.insertCell(1);
-            const qualityCell = row.insertCell(2);
-
-            // Set cell values
-            if (data.Type == "Player")
-            {
-                nameCell.textContent = data.Name || "N/A";
-                scoreCell.textContent = data.Score !== undefined ? data.Score : "N/A";
-                qualityCell.textContent = data.Rating !== undefined ? data.Rating : "N/A";
-            }
-        });
+      const data = snapshot.val();
+      users = Object.values(data);
+      renderUserList();
     } else {
-        // If no data, display a message
-        const row = table.insertRow();
-        const cell = row.insertCell(0);
-        cell.colSpan = 3;
-        cell.textContent = "No data available.";
-        cell.style.textAlign = "center";
+      console.error("No data found");
     }
-});
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
+
+// Render users with pagination
+function renderUserList() {
+  const startIndex = (currentPage - 1) * usersPerPage;
+  const endIndex = startIndex + usersPerPage;
+  const usersToDisplay = users.slice(startIndex, endIndex);
+
+  const userListContainer = document.getElementById("userList");
+  userListContainer.innerHTML = "";
+
+  usersToDisplay.forEach((user) => {
+    if (user.Type =="Admin") return;
+    const userDiv = document.createElement("div");
+    userDiv.className = "user";
+
+    // User Name
+    const userName = document.createElement("div");
+    userName.textContent = user.Name;
+    userDiv.appendChild(userName);
+
+    // Expandable Button for Best Rounds
+    const roundsButton = document.createElement("button");
+    roundsButton.textContent = "Show Top 3 Rounds";
+    roundsButton.className = "button";
+    roundsButton.onclick = () => toggleRounds(userDiv, user);
+    userDiv.appendChild(roundsButton);
+
+    // Append to the list
+    userListContainer.appendChild(userDiv);
+  });
+
+  // Show/Hide Pagination Buttons
+  document.getElementById("prevPageBtn").style.display = currentPage > 1 ? "inline" : "none";
+  document.getElementById("nextPageBtn").style.display =
+    currentPage * usersPerPage < users.length ? "inline" : "none";
+}
+
+// Toggle visibility of the top 3 rounds
+function toggleRounds(userDiv, user) {
+  let roundsDiv = userDiv.querySelector(".rounds");
+  if (!roundsDiv) {
+    // Create rounds display if not already created
+    roundsDiv = document.createElement("div");
+    roundsDiv.className = "rounds";
+
+    // Best Rounds
+    for (let i = 1; i <= 3; i++) {
+      const roundData = user[`BestRound${i}`];
+      const roundDiv = document.createElement("div");
+      roundDiv.innerHTML = `
+        <strong>Round ${i}</strong><br>
+        Meals: ${roundData.meals}, Rating: ${roundData.rating}, Score: ${roundData.score}, Trash: ${roundData.trash}
+      `;
+      roundsDiv.appendChild(roundDiv);
+    }
+
+    userDiv.appendChild(roundsDiv);
+  } else {
+    // Toggle visibility
+    roundsDiv.style.display = roundsDiv.style.display === "none" ? "block" : "none";
+  }
+}
+
+async function getUser(userId) {
+  try {
+    const usersRef = ref(db, "Users/"+userId);
+    const snapshot = await get(usersRef);
+
+    if (snapshot.exists()) {
+      const data = snapshot.val();
+      return data.Type
+    } else {
+      console.error("No data found");
+    }
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
+// Change page
+function changePage(direction) {
+  currentPage += direction;
+  renderUserList();
+}
+
+// Fetch and render users on page load
+//const userId = localStorage.getItem("userID");
+const userId = "TestUUID2"
+if (  (userId).Type == "Admin")
+{
+  fetchUsers();
+}

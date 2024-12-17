@@ -25,8 +25,8 @@ public class DataManager : MonoBehaviour
 
     private void GetUUID()
     {
-        //playerUUID = authManager.userId;
-        playerUUID = "TestUUID";
+        playerUUID = authManager.userId;
+        //playerUUID = "TestUUID";
     }
 
     // Call this method when you want to save the player's stats to Firebase

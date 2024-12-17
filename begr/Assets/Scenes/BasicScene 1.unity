@@ -24550,7 +24550,7 @@ MonoBehaviour:
   - {fileID: 1064029370}
   - {fileID: 750595640}
   - {fileID: 1695729304}
-  timer: 300
+  timer: 100
   gameStarted: 0
   minRespawnTime: 5
   maxRespawnTime: 45
@@ -24566,7 +24566,7 @@ MonoBehaviour:
   ratingText: {fileID: 2133178490}
   trashText: {fileID: 452036501}
   timerText: {fileID: 1087132637}
-  skipLogin: 1
+  skipLogin: 0
 --- !u!114 &1506317787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27483,7 +27483,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8709459010814435984, guid: 973b588fcc376ac4aba1195f454dd154, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9099682426753679664, guid: 973b588fcc376ac4aba1195f454dd154, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

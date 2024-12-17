@@ -27,6 +27,7 @@ document.getElementById("loginForm")?.addEventListener("submit", async (e) => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+        localStorage.setItem('userID', user.uid); 
         window.location.href = "dashboard.html";
       })
       .catch((error) => {

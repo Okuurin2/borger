@@ -1,0 +1,36 @@
+.user {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .rounds {
+    display: none;
+    margin-top: 10px;
+    padding-left: 20px;
+  }
+  
+  .button {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+    background: none;
+    border: none;
+  }
+  
+  .pagination {
+    margin-top: 20px;
+  }
+  
+  .pagination button {
+    margin-right: 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+  }
+  
+  .pagination button:hover {
+    background-color: #ddd;
+  }
