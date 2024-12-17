@@ -47,7 +47,7 @@ function renderUserList() {
 
     // User Name
     const userName = document.createElement("div");
-    userName.textContent = user.Name;
+    userName.textContent = "Name: " + user.Name;
     userDiv.appendChild(userName);
 
     // Expandable Button for Best Rounds
@@ -59,6 +59,8 @@ function renderUserList() {
 
     // Append to the list
     userListContainer.appendChild(userDiv);
+    const accInfo = document.getElementById("accInfo");
+    accInfo.innerHTML = "Showing " + (startIndex + 1) + " to " + endIndex + " out of " + (users.length -1);
   });
 
   // Show/Hide Pagination Buttons
@@ -80,8 +82,8 @@ function toggleRounds(userDiv, user) {
       const roundData = user[`BestRound${i}`];
       const roundDiv = document.createElement("div");
       roundDiv.innerHTML = `
-        <strong>Round ${i}</strong><br>
-        Meals: ${roundData.meals}, Rating: ${roundData.rating}, Score: ${roundData.score}, Trash: ${roundData.trash}
+        <strong>Best Round ${i}</strong><br>
+        Final Score: ${roundData.score}, Total Meals: ${roundData.meals}, Rating: ${roundData.rating}, Trashed Objects: ${roundData.trash}
       `;
       roundsDiv.appendChild(roundDiv);
     }
@@ -121,3 +123,4 @@ if (  (userId).Type == "Admin")
 {
   fetchUsers();
 }
+fetchUsers();

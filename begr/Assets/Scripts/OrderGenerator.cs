@@ -22,7 +22,7 @@ public class OrderGenerator : MonoBehaviour
     {
         burgers = new string[]
         {
-            "Jalapeno Burjer","Cheeseburger"
+            "Jalapeno Burjer","Cheeseburger","Flamin' Stack"
         };
 
         drinks = new string[]

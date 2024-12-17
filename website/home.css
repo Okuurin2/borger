@@ -6,7 +6,6 @@
 
 body {
     font-family: Arial, sans-serif;
-    text-align: center;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
@@ -15,6 +14,7 @@ body {
 header {
     color: white;
     padding: 1em 0;
+    box-shadow: 0 10px 20px 5px rgba(0, 0, 0, .25);
 }
 
 h1 {
@@ -22,12 +22,14 @@ h1 {
 }
 
 main {
+    display: flex;
+    flex-direction: column;
     margin: 2em auto;
     width: 90%;
-    max-width: 1200px;
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    align-items: center;
 }
 
 form {
@@ -51,6 +53,7 @@ input {
     border-radius: 5px;
     font-size: 1em;
     cursor: pointer;
+    margin: 0 25px;
 }
 
 #loginButton:hover {
@@ -64,11 +67,65 @@ footer {
     font-size: 0.8em;
 }
 
-.burjer_logo{
-    height: 100px;
-    width: auto;
+#banner{
+    width: 75%;
 }
 
-#banner{
+.burjer_logo{
+    padding: 25px;
+}
+
+header div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
+}
+
+.fancyText{
+    display: flex;
+    flex-direction: column;
+    font: normal normal 400 40px Nanum Brush Script;
+    width:25%;
+    padding:0px 10px;
+}
+
+.fancyText p{
+    padding: 0;
+}
+
+.top{
+    margin: 0px 25px
+}
+
+.bot{
+    margin: 0px 40px
+}
+
+.topThing{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.homeText{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font: normal normal 400 30px/40px Nanum Pen Script;
+    width:90%;
+    padding:10px 10px;
+
+}
+
+.homeText button{
+    width: 400px;
+    align-items: center;
+    font: normal normal 400 30px/40px Nanum Pen Script;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--burjer-yellow);
+    cursor: pointer;
+    color: white;
 }

@@ -1,21 +1,31 @@
-.user {
+  .user {
     margin-bottom: 10px;
     padding: 10px;
     border: 1px solid #ccc;
+    font: normal normal 500 25px/25px Nanum Pen Script;
   }
   
   .rounds {
     display: none;
     margin-top: 10px;
-    padding-left: 20px;
+    font: normal medium 500 17px/20px Roboto;
+  }
+
+  .rounds div{
+    margin: 10px;
+    padding: 5px 5px;
+    background-color: #f0f0f0;
   }
   
   .button {
     cursor: pointer;
-    color: blue;
-    text-decoration: underline;
-    background: none;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    background-color: rgb(192, 18, 18);
     border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 14px;
   }
   
   .pagination {

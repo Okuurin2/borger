@@ -9,18 +9,30 @@
 </head>
 <body>
     <header>
-        <img src="imgs\Burjer.png" class="burjer_logo"> <img>
+        <div>
+            <img src="imgs\Burjer.png" class="burjer_logo"> <img>
+            <button id="loginButton" onclick="redirectToLogin()">Login to Your Account</button>
+        </div>
         <list id ="nav">
-            <li><button onclick="index.html">Home</a></li>
+            <li><button onclick="redirectToHome()">Home</a></li>
             <li><button onclick="about.html">About</a></li>
             <li><button onclick="window.open('imgs/menu.pdf','_blank')">View Menu</a></li>
             <li><button onclick="redirectToLogin()"> VR game</button></li> 
         </list>
     </header>
     <main>
-        <img id= "banner" src="imgs\banner-06.png">
+        <div class="topThing">
+            <div class="fancyText">
+                <p class="top"> <a class="burjer-red">E</a>levate your dining</p>
+                <p class="bot"> <a class="burjer-red"> E</a>nrich your palette</p>
+            </div>
+            <img id= "banner" src="imgs\banner-06.png">
+        </div>
         <div>
-            <p>Your gateway to training and testing at the world-famous Burjer!</p>
+            
+        </div>
+        <div class="homeText">
+            <p>Log In here to check your account stats!</p>
             <button id="loginButton" onclick="redirectToLogin()">Login to Your Account</button>
         </div>
     </main>

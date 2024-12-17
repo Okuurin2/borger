@@ -5,20 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Burjer VR Portal</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
     <header>
-        <h1>Burjer VR Portal Login</h1>
+        <img src="imgs\Burjer.png" class="burjer_logo"> <img>
+        <list id ="nav">
+            <li><button onclick="redirectToHome()">Home</a></li>
+            <li><button onclick="about.html">About</a></li>
+            <li><button onclick="window.open('imgs/menu.pdf','_blank')">View Menu</a></li>
+            <li><button onclick="redirectToLogin()"> VR game</button></li> 
+        </list>
+        <h1> Login to your account</h1>
     </header>
     <main>
         <form id="loginForm">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-
-            <button type="submit">Login</button>
+            <img src="imgs\Burjer.png" class="burjer_logo" style="width: 50%; height: auto;"> <img>
+            <div class="email">
+                <input type="email" id="email" name="email" placeholder="Enter your email">
+            </div>
+            <div class="password">
+                <input type="password" id="password" name="password" placeholder="Enter your password">
+            </div>
+            <button id="login" type="submit">Login</button>
         </form>
         <p id="errorMessage"></p>
     </main>
@@ -26,5 +35,6 @@
         <p>&copy; 2024 Burjer Inc.</p>
     </footer>
     <script type="module" src="firebase.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

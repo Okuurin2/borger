@@ -35,8 +35,13 @@ public class Tray: MonoBehaviour
             { "Cheeseburger" , new List<string>
             {
                 "BotBun","Beef","Cheese","Lettuce","Onion","Pickles","TopBun"
+            }},
+            { "Flamin' Stack" , new List<string>
+            {
+                "BotBun","Beef","Cheese","Beef","Cheese","Jalapenos","Onion","TopBun"
             }}
-        };
+         };
+    
 
     private void Start()
     {
@@ -85,13 +90,24 @@ public class Tray: MonoBehaviour
         if (drink != null)
         {
             Drink drinkScript = drink.GetComponent<Drink>();
-            if (drinkScript.Ice == false)
+            if (drinkScript.fillLevel < 1)
             {
-                rating -= 0.25f;
+                rating -= 0.35f;
             }
-            if (drinkScript.typeOfDrink != order[2])
+            if (drinkScript.fillLevel < 0.5f)
             {
-                rating -= 0.75f;
+                rating -= 1f;
+            }
+            else
+            {
+                if (drinkScript.Ice == false)
+                {
+                    rating -= 0.25f;
+                }
+                if (drinkScript.typeOfDrink != order[2])
+                {
+                    rating -= 0.4f;
+                }
             }
         }
         else

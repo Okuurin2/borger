@@ -127,6 +127,7 @@
   #nav li:hover button {
     color: rgb(255, 255, 255);
 }
+  
   #nav button{
     all: unset; 
     cursor: pointer;
@@ -166,6 +167,11 @@
   }
 
   footer a{
-    color: #2C2C2C;
     text-decoration: none;
+    color: #BA2626;
   }
+
+  .burjer_logo{
+    height: 100px;
+    width: auto;
+}

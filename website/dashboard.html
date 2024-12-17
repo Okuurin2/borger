@@ -12,7 +12,7 @@
     <header>
         <img src="imgs\Burjer.png" class="burjer_logo"> <img>
         <list id ="nav">
-            <li id="current"><button onclick="index.html">Home</a></li>
+            <li><button onclick="redirectToHome()">Home</a></li>
             <li><button onclick="about.html">About</a></li>
             <li><button onclick="window.open('imgs/menu.pdf','_blank')">View Menu</a></li>
             <li><button onclick="redirectToLogin()"> VR game</button></li> 
@@ -26,12 +26,18 @@
           <button id="nextPageBtn" onclick="changePage(1)">Next</button>
         </div>
         <p id="accInfo"> Showing x out of x </p>
-        <button onclick="redirectToHome()">Return to Home</button>
     </main>
     <footer>
+        <ul>
+            <li><a href="imgs/menu.pdf"> Menu </a></li>
+            <li><a> Locations </a></li>
+            <li><a> Contact Us </a></li>
+            <li><a> Privacy Policy </a></li>
+            <li><a> Terms of Use </a></li>
+        </ul>
         <p>&copy; 2024 Burjer Inc.</p>
     </footer>
-    <script type="module" src="script.js"></script>
+    <script src="script.js"></script>
     <script type="module" src="dashboard.js"></script>
 </body>
 </html>
